@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.intuit.pizza.domain.pizza.Pizza;
 
-
+@Service
 public class InventoryService {
 
 	private List<Pizza> pizzas = new ArrayList<>();
