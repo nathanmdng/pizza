@@ -1,12 +1,13 @@
-package com.intuit.pizza.domain.store;
+package com.intuit.pizza.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.intuit.pizza.domain.pizza.Pizza;
+import com.intuit.pizza.exception.NoPizzasAvailableException;
 
 
-public class Inventory {
+public class InventoryService {
 
 	private List<Pizza> pizzas = new ArrayList<>();
 
@@ -22,7 +23,11 @@ public class Inventory {
 		pizzas.add(pizza);
 	}
 	
-	public void removePizza(Pizza pizza) {
+	public void removePizza(Pizza pizza) throws NoPizzasAvailableException {
+		if (pizzas.isEmpty()) {
+			throw new NoPizzasAvailableException();
+		}
 		pizzas.remove(pizza);
 	}
+	
 }
