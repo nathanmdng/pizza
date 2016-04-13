@@ -10,11 +10,11 @@ import com.intuit.pizza.domain.pizza.Base;
 import com.intuit.pizza.domain.pizza.Pizza;
 import com.intuit.pizza.domain.pizza.Sauce;
 import com.intuit.pizza.domain.pizza.Size;
-import com.intuit.pizza.domain.pizza.Topping;
 
 public class PricingServiceTest {
 
-	private PricingService service = new PricingService();
+	private PricingService pricingService = new PricingService();
+	private ToppingService toppingService = new ToppingService();
 	
 	@Test
 	public void testPricing() {
@@ -22,14 +22,14 @@ public class PricingServiceTest {
 		order.setOrderType(OrderType.DELIVERY);
 		order.addPizza(getCheesePizza());
 		order.addPizza(getHawaiianPizza());
-		double price = service.calculatePrice(order);
+		double price = pricingService.calculatePrice(order);
 		assertEquals(22.736, price, 0.0001);
 	}
 	
 	public Pizza getCheesePizza() {
 		Pizza pizza = new Pizza();
 		pizza.addSauce(Sauce.TOMATO);
-		pizza.addTopping(Topping.CHEESE);
+		pizza.addTopping(toppingService.getTopping("Cheese"));
 		pizza.setBase(Base.CLASSIC);
 		pizza.setSize(Size.MEDIUM);
 		return pizza;
@@ -38,9 +38,9 @@ public class PricingServiceTest {
 	public Pizza getHawaiianPizza() {
 		Pizza pizza = new Pizza(); 
 		pizza.addSauce(Sauce.TOMATO);
-		pizza.addTopping(Topping.CHEESE);
-		pizza.addTopping(Topping.HAM);
-		pizza.addTopping(Topping.PINEAPPLE);
+		pizza.addTopping(toppingService.getTopping("Cheese"));
+		pizza.addTopping(toppingService.getTopping("Ham"));
+		pizza.addTopping(toppingService.getTopping("Pineapple"));
 		pizza.setBase(Base.PAN);
 		pizza.setSize(Size.LARGE);
 		return pizza;

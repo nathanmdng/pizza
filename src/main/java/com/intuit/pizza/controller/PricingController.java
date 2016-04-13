@@ -16,7 +16,7 @@ public class PricingController {
 
 	@Autowired private PricingService pricingService;
 	
-	@RequestMapping(value = "pricing", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	@RequestMapping(value = "pricing", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Double> priceOrder(@RequestBody Order order) {
 		double totalPrice = pricingService.calculatePrice(order);
 		return new ResponseEntity<Double>(totalPrice, HttpStatus.OK);
