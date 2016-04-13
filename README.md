@@ -15,7 +15,10 @@
 
 **get order pricing**
 /pricing POST
-{ order details... }
+{"orderType":"DELIVERY","pizzas":[{"id":1,"base":"CLASSIC","size":"MEDIUM","sauces":["TOMATO"],"toppings":[{"name":"Cheese","price":0.2}],"price":0.0},{"id":2,"base":"PAN","size":"LARGE","sauces":["TOMATO"],"toppings":[{"name":"Ham","price":0.4},{"name":"Pineapple","price":0.5},{"name":"Cheese","price":0.2}],"price":0.0}], "discountType": "HALF_PRICE"}
+
+Response
+{"pizzas":[{"id":1,"base":"CLASSIC","size":"MEDIUM","sauces":["TOMATO"],"toppings":[{"name":"Cheese","price":0.2}],"price":8.7},{"id":2,"base":"PAN","size":"LARGE","sauces":["TOMATO"],"toppings":[{"name":"Ham","price":0.4},{"name":"Pineapple","price":0.5},{"name":"Cheese","price":0.2}],"price":11.6}],"delivery":5.0,"taxRate":0.12,"discount":14.168,"total":14.168}
 
 ## Patterns
 * Using strategy to apply discounts
