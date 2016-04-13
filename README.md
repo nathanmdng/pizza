@@ -16,3 +16,7 @@
 **get order pricing**
 /pricing POST
 { order details... }
+
+## Patterns
+* Using strategy to apply discounts
+* Using Spring which embodies pattens such as singleton, MVC, front controller
