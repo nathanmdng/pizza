@@ -2,6 +2,7 @@ package com.intuit.pizza.service;
 
 import org.springframework.stereotype.Service;
 
+import com.intuit.pizza.discount.Discount;
 import com.intuit.pizza.domain.order.Order;
 import com.intuit.pizza.domain.order.OrderType;
 import com.intuit.pizza.domain.order.Receipt;
@@ -26,7 +27,11 @@ public class PricingService {
 		if (order.getOrderType() == OrderType.DELIVERY) {
 			pricing.setDelivery(DELIVERY_COST);
 		}
-		pricing.setTaxRate(TAX_RATE); 
+		pricing.setTaxRate(TAX_RATE);
+		if (order.getDiscountType() != null) {
+			Discount discount = order.getDiscountType().getDiscount();
+			pricing = discount.apply(pricing);
+		}
 		return pricing;
 	}
 	
