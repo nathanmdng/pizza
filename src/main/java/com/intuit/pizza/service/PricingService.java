@@ -21,17 +21,17 @@ public class PricingService {
 			fullCost += basePrice + toppingPrice + saucePrice;
 		}
 		if (order.getOrderType() == OrderType.DELIVERY) {
-			applyDelivery(fullCost);
+			fullCost += getDeliveryCost();
 		}
-		return applyTax(fullCost);
+		double priceWithTax = applyTax(fullCost);
+		return priceWithTax;
 	}
 	
 	private double applyTax(double price) {
 		return price * TAX_RATE;
 	}
 	
-	private double applyDelivery(double price) {
-		return price + DELIVERY_COST;
+	public double getDeliveryCost() {
+		return DELIVERY_COST;
 	}
-	
 }

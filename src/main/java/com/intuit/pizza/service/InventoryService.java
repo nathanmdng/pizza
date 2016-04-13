@@ -2,9 +2,9 @@ package com.intuit.pizza.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.intuit.pizza.domain.pizza.Pizza;
-import com.intuit.pizza.exception.NoPizzasAvailableException;
 
 
 public class InventoryService {
@@ -15,19 +15,19 @@ public class InventoryService {
 		return pizzas;
 	}
 
-	public void setPizzas(List<Pizza> pizzas) {
-		this.pizzas = pizzas;
-	}
-	
 	public void addPizza(Pizza pizza) {
 		pizzas.add(pizza);
 	}
-	
-	public void removePizza(Pizza pizza) throws NoPizzasAvailableException {
-		if (pizzas.isEmpty()) {
-			throw new NoPizzasAvailableException();
+
+	public Pizza getById(long id) {
+		Optional<Pizza> search = pizzas.stream().filter(p -> p.getId() == id).findFirst();
+		if (search.isPresent()) {
+			return search.get();
 		}
-		pizzas.remove(pizza);
+		return null;
 	}
 	
+	public void removePizza(long id) {
+		pizzas.remove(getById(id));
+	}
 }

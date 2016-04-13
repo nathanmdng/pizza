@@ -1,7 +1,5 @@
 package com.intuit.pizza.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +15,8 @@ import com.intuit.pizza.service.InventoryService;
 import com.intuit.pizza.service.ToppingService;
 
 @Controller
-@RequestMapping(value = "inventory")
-public class InventoryController {
+@RequestMapping(value = "store")
+public class StoreController {
 
 	@Autowired private ToppingService toppingService;
 	@Autowired private InventoryService inventoryService;
@@ -35,15 +33,16 @@ public class InventoryController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
-	@RequestMapping(value = "pizza", method = RequestMethod.DELETE, consumes = "application/json")
+	@RequestMapping(value = "pizza", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Void> addPizza(@RequestBody Pizza pizza) {
 		inventoryService.addPizza(pizza);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
-	@RequestMapping(value = "pizza", method = RequestMethod.GET, consumes = "application/json")
-	public ResponseEntity<List<Pizza>> getRemainingPizzas() {
-		return new ResponseEntity<List<Pizza>>(inventoryService.getPizzas(), HttpStatus.OK);
+	@RequestMapping(value = "pizza/{id}", method = RequestMethod.DELETE, consumes = "application/json")
+	public ResponseEntity<Void> removePizza(@PathVariable Long id) {
+		inventoryService.removePizza(id);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
 }

@@ -5,18 +5,18 @@ import java.util.Set;
 
 public class Pizza {
 
-	private String name;
+	private long id;
 	private Base base;
 	private Size size;
 	private Set<Sauce> sauces = new HashSet<>();
 	private Set<Topping> toppings = new HashSet<>();
 	private double price;
 	
-	public String getName() {
-		return name;
+	public long getId() {
+		return id;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public Base getBase() {
 		return base;
@@ -53,6 +53,27 @@ public class Pizza {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pizza other = (Pizza) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 	
 }

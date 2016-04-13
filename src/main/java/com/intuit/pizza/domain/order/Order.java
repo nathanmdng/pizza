@@ -3,6 +3,7 @@ package com.intuit.pizza.domain.order;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.intuit.pizza.discount.DiscountType;
 import com.intuit.pizza.domain.pizza.Pizza;
 
 public class Order {
@@ -11,6 +12,7 @@ public class Order {
 	private OrderType orderType;
 	private List<Pizza> pizzas = new ArrayList<>();
 	private String phoneNumber;
+	private DiscountType discountType;
 	
 	public String getName() {
 		return name;
@@ -38,6 +40,12 @@ public class Order {
 	}
 	public void addPizza(Pizza pizza) {
 		pizzas.add(pizza);
+	}
+	public DiscountType getDiscountType() {
+		return discountType;
+	}
+	public void setDiscountType(DiscountType discountType) {
+		this.discountType = discountType;
 	}
 	
 }
