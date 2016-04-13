@@ -1,4 +1,4 @@
-package com.intuit.pizza.config;
+package com.intuit.pizza;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

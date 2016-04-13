@@ -4,8 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.google.gson.Gson;
 import com.intuit.pizza.domain.order.Order;
 import com.intuit.pizza.domain.order.OrderType;
+import com.intuit.pizza.domain.order.Receipt;
 import com.intuit.pizza.domain.pizza.Base;
 import com.intuit.pizza.domain.pizza.Pizza;
 import com.intuit.pizza.domain.pizza.Sauce;
@@ -15,6 +17,7 @@ public class PricingServiceTest {
 
 	private PricingService pricingService = new PricingService();
 	private ToppingService toppingService = new ToppingService();
+	private Gson gson = new Gson();
 	
 	@Test
 	public void testPricing() {
@@ -22,8 +25,10 @@ public class PricingServiceTest {
 		order.setOrderType(OrderType.DELIVERY);
 		order.addPizza(getCheesePizza());
 		order.addPizza(getHawaiianPizza());
-		double price = pricingService.calculatePrice(order);
-		assertEquals(22.736, price, 0.0001);
+		Receipt price = pricingService.calculatePrice(order);
+		assertEquals(28.336, price.getTotal(), 0.0001);
+		String jsonValue = gson.toJson(order);
+		System.out.println(jsonValue);
 	}
 	
 	public Pizza getCheesePizza() {

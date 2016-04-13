@@ -1,14 +1,14 @@
 package com.intuit.pizza.discount;
 
-import com.intuit.pizza.domain.order.Order;
-import com.intuit.pizza.service.PricingService;
+import com.intuit.pizza.domain.order.Receipt;
 
 public class FreeDelivery implements Discount {
 
 	@Override
-	public double apply(PricingService pricingService, Order order) {
-		double fullPrice = pricingService.calculatePrice(order);
-		return fullPrice - pricingService.getDeliveryCost();
+	public Receipt apply(Receipt pricing) {
+		double discount = pricing.getDelivery();
+		pricing.setDiscount(discount);
+		return pricing;
 	}
 
 }

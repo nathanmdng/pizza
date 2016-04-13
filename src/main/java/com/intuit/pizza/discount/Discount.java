@@ -1,10 +1,9 @@
 package com.intuit.pizza.discount;
 
-import com.intuit.pizza.domain.order.Order;
-import com.intuit.pizza.service.PricingService;
+import com.intuit.pizza.domain.order.Receipt;
 
 public interface Discount {
 
-	double apply(PricingService pricingService, Order order);
+	Receipt apply(Receipt pricing);
 	
 }

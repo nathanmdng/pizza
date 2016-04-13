@@ -4,34 +4,30 @@ import org.springframework.stereotype.Service;
 
 import com.intuit.pizza.domain.order.Order;
 import com.intuit.pizza.domain.order.OrderType;
+import com.intuit.pizza.domain.order.Receipt;
 import com.intuit.pizza.domain.pizza.Pizza;
 
 @Service
 public class PricingService {
 
-	private static final double TAX_RATE = 1.12;
+	private static final double TAX_RATE = 0.12;
 	private static final double DELIVERY_COST = 5;
 	
-	public double calculatePrice(Order order) {
-		double fullCost = 0;
+	public Receipt calculatePrice(Order order) {
+		Receipt pricing = new Receipt();
 		for (Pizza pizza : order.getPizzas()) {
 			double basePrice = pizza.getSize().getPrice();
 			double toppingPrice = pizza.getToppings().stream().mapToDouble(t -> t.getPrice()).sum();
 			double saucePrice = pizza.getSauces().stream().mapToDouble(s -> s.getPrice()).sum();
-			fullCost += basePrice + toppingPrice + saucePrice;
+			double pizzaCost = basePrice + toppingPrice + saucePrice;
+			pizza.setPrice(pizzaCost);
+			pricing.addPizza(pizza);
 		}
 		if (order.getOrderType() == OrderType.DELIVERY) {
-			fullCost += getDeliveryCost();
+			pricing.setDelivery(DELIVERY_COST);
 		}
-		double priceWithTax = applyTax(fullCost);
-		return priceWithTax;
+		pricing.setTaxRate(TAX_RATE); 
+		return pricing;
 	}
 	
-	private double applyTax(double price) {
-		return price * TAX_RATE;
-	}
-	
-	public double getDeliveryCost() {
-		return DELIVERY_COST;
-	}
 }
