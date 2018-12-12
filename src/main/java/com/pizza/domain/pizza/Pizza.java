@@ -1,4 +1,4 @@
-package com.intuit.pizza.domain.pizza;
+package com.pizza.domain.pizza;
 
 import java.util.HashSet;
 import java.util.Set;

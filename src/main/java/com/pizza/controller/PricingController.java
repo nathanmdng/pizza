@@ -1,4 +1,4 @@
-package com.intuit.pizza.controller;
+package com.pizza.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.intuit.pizza.domain.order.Order;
-import com.intuit.pizza.domain.order.Receipt;
-import com.intuit.pizza.service.PricingService;
+import com.pizza.domain.order.Order;
+import com.pizza.domain.order.Receipt;
+import com.pizza.service.PricingService;
 
 @Controller
 public class PricingController {

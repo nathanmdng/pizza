@@ -1,11 +1,12 @@
-package com.intuit.pizza.service;
+package com.pizza.service;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import com.intuit.pizza.domain.pizza.Topping;
+import com.pizza.domain.pizza.Topping;
+import com.pizza.service.ToppingService;
 
 public class ToppingServiceTest {
 

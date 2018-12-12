@@ -1,9 +1,9 @@
-package com.intuit.pizza.domain.order;
+package com.pizza.domain.order;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.intuit.pizza.domain.pizza.Pizza;
+import com.pizza.domain.pizza.Pizza;
 
 public class Receipt {
 

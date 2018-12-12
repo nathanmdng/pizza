@@ -1,18 +1,20 @@
-package com.intuit.pizza.service;
+package com.pizza.service;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 import com.google.gson.Gson;
-import com.intuit.pizza.discount.DiscountType;
-import com.intuit.pizza.domain.order.Order;
-import com.intuit.pizza.domain.order.OrderType;
-import com.intuit.pizza.domain.order.Receipt;
-import com.intuit.pizza.domain.pizza.Base;
-import com.intuit.pizza.domain.pizza.Pizza;
-import com.intuit.pizza.domain.pizza.Sauce;
-import com.intuit.pizza.domain.pizza.Size;
+import com.pizza.discount.DiscountType;
+import com.pizza.domain.order.Order;
+import com.pizza.domain.order.OrderType;
+import com.pizza.domain.order.Receipt;
+import com.pizza.domain.pizza.Base;
+import com.pizza.domain.pizza.Pizza;
+import com.pizza.domain.pizza.Sauce;
+import com.pizza.domain.pizza.Size;
+import com.pizza.service.PricingService;
+import com.pizza.service.ToppingService;
 
 public class PricingServiceTest {
 

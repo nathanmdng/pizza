@@ -1,4 +1,4 @@
-package com.intuit.pizza.controller;
+package com.pizza.controller;
 
 import java.util.HashMap;
 import java.util.Map;

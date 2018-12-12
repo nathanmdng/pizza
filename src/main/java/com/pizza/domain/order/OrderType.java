@@ -1,4 +1,4 @@
-package com.intuit.pizza.domain.order;
+package com.pizza.domain.order;
 
 public enum OrderType {
 

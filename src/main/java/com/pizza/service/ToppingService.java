@@ -1,4 +1,4 @@
-package com.intuit.pizza.service;
+package com.pizza.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.intuit.pizza.domain.pizza.Topping;
+import com.pizza.domain.pizza.Topping;
 
 @Service
 public class ToppingService {

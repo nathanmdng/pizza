@@ -1,6 +1,6 @@
-package com.intuit.pizza.discount;
+package com.pizza.discount;
 
-import com.intuit.pizza.domain.order.Receipt;
+import com.pizza.domain.order.Receipt;
 
 public class HalfPrice implements Discount {
 

@@ -1,4 +1,4 @@
-package com.intuit.pizza.discount;
+package com.pizza.discount;
 
 public enum DiscountType {
 

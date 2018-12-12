@@ -1,12 +1,12 @@
-package com.intuit.pizza.service;
+package com.pizza.service;
 
 import org.springframework.stereotype.Service;
 
-import com.intuit.pizza.discount.Discount;
-import com.intuit.pizza.domain.order.Order;
-import com.intuit.pizza.domain.order.OrderType;
-import com.intuit.pizza.domain.order.Receipt;
-import com.intuit.pizza.domain.pizza.Pizza;
+import com.pizza.discount.Discount;
+import com.pizza.domain.order.Order;
+import com.pizza.domain.order.OrderType;
+import com.pizza.domain.order.Receipt;
+import com.pizza.domain.pizza.Pizza;
 
 @Service
 public class PricingService {
